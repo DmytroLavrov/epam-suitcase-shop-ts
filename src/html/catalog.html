@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEST SHOP | Catalog</title>
+    <link rel="stylesheet" href="../../dist/css/main.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header"></header>
+      <main class="main">
+        <div class="filters-panel" id="filtersPanel">
+          <div class="filters-panel__container container">
+            <div class="filters-panel__content">
+              <div class="filters-panel__filter-group filter-group">
+                <label class="filter-group__label" for="sizeFilterDropdown"
+                  >Size</label
+                >
+                <div class="filter-group__dropdown">
+                  <div
+                    class="custom-dropdown custom-dropdown--filters"
+                    data-filter="size"
+                    id="sizeFilterDropdown"
+                  >
+                    <div class="custom-dropdown__selected">Choose option</div>
+                    <div class="custom-dropdown__options">
+                      <div
+                        class="custom-dropdown__option custom-dropdown__option--active"
+                        data-value="all"
+                      >
+                        Choose option
+                      </div>
+                      <div class="custom-dropdown__option" data-value="S">
+                        S
+                      </div>
+                      <div class="custom-dropdown__option" data-value="M">
+                        M
+                      </div>
+                      <div class="custom-dropdown__option" data-value="L">
+                        L
+                      </div>
+                      <div class="custom-dropdown__option" data-value="XL">
+                        XL
+                      </div>
+                      <div class="custom-dropdown__option" data-value="S-L">
+                        S-L
+                      </div>
+                      <div
+                        class="custom-dropdown__option"
+                        data-value="S, M, XL"
+                      >
+                        S, M, XL
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filters-panel__filter-group filter-group">
+                <label class="filter-group__label" for="colorFilterDropdown"
+                  >Color</label
+                >
+                <div class="filter-group__dropdown">
+                  <div
+                    class="custom-dropdown"
+                    data-filter="color"
+                    id="colorFilterDropdown"
+                  >
+                    <div class="custom-dropdown__selected">Choose option</div>
+                    <div class="custom-dropdown__options">
+                      <div
+                        class="custom-dropdown__option custom-dropdown__option--active"
+                        data-value="all"
+                      >
+                        Choose option
+                      </div>
+                      <div class="custom-dropdown__option" data-value="red">
+                        Red
+                      </div>
+                      <div class="custom-dropdown__option" data-value="blue">
+                        Blue
+                      </div>
+                      <div class="custom-dropdown__option" data-value="green">
+                        Green
+                      </div>
+                      <div class="custom-dropdown__option" data-value="black">
+                        Black
+                      </div>
+                      <div class="custom-dropdown__option" data-value="grey">
+                        Grey
+                      </div>
+                      <div class="custom-dropdown__option" data-value="yellow">
+                        Yellow
+                      </div>
+                      <div class="custom-dropdown__option" data-value="pink">
+                        Pink
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filters-panel__filter-group filter-group">
+                <label class="filter-group__label" for="categoryFilterDropdown"
+                  >Category</label
+                >
+                <div class="filter-group__dropdown">
+                  <div
+                    class="custom-dropdown"
+                    data-filter="category"
+                    id="categoryFilterDropdown"
+                  >
+                    <div class="custom-dropdown__selected">Choose option</div>
+                    <div class="custom-dropdown__options">
+                      <div
+                        class="custom-dropdown__option custom-dropdown__option--active"
+                        data-value="all"
+                      >
+                        Choose option
+                      </div>
+                      <div
+                        class="custom-dropdown__option"
+                        data-value="carry-ons"
+                      >
+                        Carry-ons
+                      </div>
+                      <div
+                        class="custom-dropdown__option"
+                        data-value="suitcases"
+                      >
+                        Suitcases
+                      </div>
+                      <div
+                        class="custom-dropdown__option"
+                        data-value="luggage sets"
+                      >
+                        Luggage Sets
+                      </div>
+                      <div
+                        class="custom-dropdown__option"
+                        data-value="kids' luggage"
+                      >
+                        Kids' Luggage
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filters-panel__filter-group filter-group">
+                <span class="filter-group__label">Sales</span>
+                <div class="filter-group__checkbox-wrapper">
+                  <input
+                    type="checkbox"
+                    class="filter-group__checkbox-input"
+                    id="salesFilter"
+                    data-filter="sale"
+                    hidden
+                  />
+                  <label class="filter-group__checkbox-label" for="salesFilter">
+                    <span class="filter-group__custom-checkbox"></span> On Sale
+                    Only
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="filters-panel__actions">
+              <button
+                class="filters-panel__btn btn btn--filters"
+                id="clearFiltersBtn"
+              >
+                Clear Filters
+              </button>
+              <button
+                class="filters-panel__btn btn btn--filters"
+                id="hideFiltersBtn"
+              >
+                Hide Filters
+              </button>
+            </div>
+          </div>
+        </div>
+        <section class="catalog">
+          <div class="catalog__container container">
+            <div class="catalog__toolbar">
+              <div class="catalog__results" id="resultsText"></div>
+              <div class="catalog__controls">
+                <div class="catalog__sort">
+                  <div
+                    class="custom-dropdown custom-dropdown--sort"
+                    data-sort="true"
+                  >
+                    <div class="custom-dropdown__selected">Default Sorting</div>
+                    <div class="custom-dropdown__options">
+                      <div
+                        class="custom-dropdown__option custom-dropdown__option--active"
+                        data-value="default"
+                      >
+                        Default Sorting
+                      </div>
+                      <div
+                        class="custom-dropdown__option"
+                        data-value="price-asc"
+                      >
+                        Price: Low to High
+                      </div>
+                      <div
+                        class="custom-dropdown__option"
+                        data-value="price-desc"
+                      >
+                        Price: High to Low
+                      </div>
+                      <div
+                        class="custom-dropdown__option"
+                        data-value="popularity"
+                      >
+                        Most Popular
+                      </div>
+                      <div class="custom-dropdown__option" data-value="rating">
+                        Highest Rated
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="search">
+                  <input
+                    type="text"
+                    class="search__input"
+                    placeholder="Search Models"
+                    id="searchInput"
+                  />
+                  <button class="search__button" id="searchBtn">
+                    <img src="../assets/icons/search.svg" alt="search-icon" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="catalog__content" id="catalogContent">
+              <div class="catalog__products products">
+                <div class="products__grid" id="productsGrid"></div>
+
+                <div class="pagination">
+                  <button
+                    class="pagination__button pagination__button--nav pagination__button--prev"
+                    id="prevBtn"
+                  >
+                    Previous
+                  </button>
+
+                  <div class="pagination__numbers" id="pageNumbers">
+                    <button
+                      class="pagination__button pagination__button--active"
+                    >
+                      1
+                    </button>
+                    <button class="pagination__button">2</button>
+                  </div>
+
+                  <button
+                    class="pagination__button pagination__button--nav pagination__button--next"
+                    id="nextBtn"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+              <aside class="catalog__sidebar sidebar">
+                <h2 class="sidebar__title">Top Best Sets</h2>
+                <div class="best-sets__list" id="bestSets"></div>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"></footer>
+      <div class="no-product-modal modal" id="no-product-modal">
+        <div class="no-product-modal__content">
+          <h3 class="no-product-modal__title">Product Not Found</h3>
+          <p class="no-product-modal__message">
+            Sorry, we couldn't find a product matching your search.
+          </p>
+          <button class="no-product-modal__button" id="modalCloseBtn">
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="../../dist/js/main.js"></script>
+    <script src="../../dist/js/catalog.js"></script>
+  </body>
+</html>

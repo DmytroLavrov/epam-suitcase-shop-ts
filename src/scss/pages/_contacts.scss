@@ -1,0 +1,92 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+
+.contact-form {
+  padding-top: 130px;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+
+    @include lg {
+      gap: 20px;
+    }
+
+    @include md {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__image-background {
+    background-image: url(../../src/assets/images/contact-us/contact-suitcase.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @include md {
+      height: clamp(300px, 0.893rem + 89.29vw, 700px); // 768px to 320px
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 17px;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    row-gap: 30px;
+
+    margin-top: 50px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    width: 100%;
+  }
+
+  &__label {
+    font-weight: 700;
+    font-size: 18px;
+
+    span {
+      color: $color-accent;
+    }
+  }
+
+  &__textarea {
+    resize: none;
+  }
+
+  /* Submit button loading state */
+  &__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #6c757d;
+  }
+
+  &__error {
+    font-size: 14px;
+    color: $color-failed;
+    animation: slideDown 0.3s ease;
+  }
+}

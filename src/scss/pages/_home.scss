@@ -1,0 +1,398 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+
+.hero-home {
+  &__content {
+    padding: 116px 0 120px;
+    background-color: $bg-hero-content;
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include md {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__info {
+    max-width: 486px;
+
+    @include lg {
+      max-width: none;
+      flex: 1;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: clamp(40px, 1.786rem + 1.49vw, 50px); // 1440px to 768px
+  }
+
+  &__description {
+    margin-block: clamp(20px, 0.536rem + 1.49vw, 30px); // 1440px to 768px
+    margin-right: -106px;
+
+    @include lg {
+      margin-right: 0;
+    }
+  }
+
+  &__image {
+    @include lg {
+      flex: 1;
+    }
+  }
+
+  &__cards {
+    margin-top: -100px;
+
+    &-container {
+      display: flex;
+
+      @include md {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .hero-card {
+    background-color: $bg-hero-card;
+    box-shadow: $box-shadow-card;
+
+    &--left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      flex: 1;
+
+      @include md {
+        display: block;
+      }
+    }
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      row-gap: clamp(20px, 0.536rem + 1.49vw, 30px); // 1440px to 768px
+      max-width: 496px;
+      padding: 2rem;
+
+      @include md {
+        max-width: none;
+      }
+    }
+
+    &__author {
+      display: inline-flex;
+      align-items: center;
+      column-gap: 22px;
+    }
+
+    &__avatar {
+      max-width: clamp(70px, 3.304rem + 2.23vw, 85px); // 1440px to 768px
+    }
+
+    &__name {
+      font-weight: 700;
+      font-size: clamp(17px, 0.848rem + 0.45vw, 20px); // 1440px to 768px
+      margin-bottom: 7px;
+    }
+
+    &__position {
+      font-weight: 400;
+      font-size: clamp(14px, 0.661rem + 0.45vw, 17px); // 1440px to 768px
+    }
+
+    &__title {
+      line-height: 1.36;
+    }
+
+    &--right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex: 1;
+
+      .hero-card__title,
+      .hero-card__text {
+        color: #ffffff;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+    }
+
+    &__content {
+      position: absolute;
+      z-index: 2;
+      padding-left: 70px;
+
+      padding-left: clamp(30px, -0.982rem + 5.95vw, 70px); // 1440px to 768px
+      padding-right: 15px;
+
+      .hero-card__title,
+      .hero-card__text {
+        margin-bottom: clamp(20px, 0.536rem + 1.49vw, 30px); // 1440px to 768px
+      }
+
+      .hero-card__text {
+        max-width: 393px;
+
+        @include md {
+          max-width: none;
+        }
+      }
+    }
+
+    &__bg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.travel-suitcases {
+  padding-top: 119px;
+
+  &__slider-wrapper {
+    position: relative;
+    max-width: 1300px;
+    width: 100%;
+  }
+
+  &__slides-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 4) - 29px);
+    gap: 38px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include xl {
+      grid-auto-columns: calc((100% / 3) - 26px);
+    }
+
+    @include lg {
+      grid-auto-columns: calc((100% / 2) - 19px);
+    }
+
+    @include sm {
+      grid-auto-columns: 100%;
+    }
+
+    &.no-transition {
+      scroll-behavior: auto;
+    }
+
+    &.dragging {
+      scroll-snap-type: none;
+      scroll-behavior: auto;
+    }
+
+    &.dragging .suitcase-card {
+      cursor: grab;
+      user-select: none;
+    }
+  }
+
+  .slider {
+    &__btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      z-index: 3;
+
+      &--prev {
+        left: -10px;
+      }
+
+      &--next {
+        right: -10px;
+      }
+    }
+  }
+
+  .suitcase-card {
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition:
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+    scroll-snap-align: start;
+
+    &:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
+    }
+
+    &:hover img {
+      transform: scale(1.1);
+    }
+
+    &__image-wrapper {
+      position: relative;
+
+      width: 100%;
+      height: 600px;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+    }
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    &__content {
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 20px;
+
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.4) 70%,
+        transparent 100%
+      );
+
+      color: $color-travel-suitcases-card;
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: 19px;
+      max-width: 199px;
+      margin-bottom: 20px;
+    }
+
+    &__description {
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 147%;
+      max-width: 186px;
+    }
+  }
+}
+
+.testimonials {
+  padding-top: 119px;
+
+  &__cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    flex: 1 1 420px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: $bg-testimonial-card;
+    box-shadow: $box-shadow-card;
+  }
+
+  &__avatar-circle {
+    width: 98px;
+    height: 98px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  &__quote {
+    margin-bottom: 25px;
+  }
+
+  &__customer-info {
+    font-weight: 700;
+    font-size: 17px;
+    color: $color-accent;
+  }
+}
+
+.products-error-state {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  text-align: center;
+
+  &__content {
+    max-width: 500px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: clamp(24px, 1.286rem + 1.19vw, 32px);
+    color: $color-title;
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: clamp(14px, 0.661rem + 0.45vw, 17px);
+    color: $color-description;
+    line-height: 1.5;
+  }
+}
+
+.products-empty-state {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+
+  &__message {
+    font-weight: 400;
+    font-size: clamp(14px, 0.661rem + 0.45vw, 17px);
+    color: $color-description;
+    opacity: 0.7;
+  }
+}

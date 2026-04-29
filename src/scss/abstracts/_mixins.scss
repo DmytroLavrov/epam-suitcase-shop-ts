@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use './variables' as vars;
+
+@mixin xs() {
+  @media (max-width: map.get(vars.$breakpoints, 'xs')) {
+    @content;
+  }
+}
+
+@mixin xsm() {
+  @media (max-width: map.get(vars.$breakpoints, 'xsm')) {
+    @content;
+  }
+}
+
+@mixin sm() {
+  @media (max-width: map.get(vars.$breakpoints, 'sm')) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media (max-width: map.get(vars.$breakpoints, 'md')) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media (max-width: map.get(vars.$breakpoints, 'lg')) {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @media (max-width: map.get(vars.$breakpoints, 'xl')) {
+    @content;
+  }
+}
+
+@mixin xxl() {
+  @media (max-width: map.get(vars.$breakpoints, 'xxl')) {
+    @content;
+  }
+}

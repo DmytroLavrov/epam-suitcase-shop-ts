@@ -1,0 +1,165 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+
+.footer {
+  padding: 120px 0 43px;
+
+  &__benefits {
+    background-color: $bg-footer-benefits;
+    background-image: url(../../../src/assets/images/footer/footer-benefits-bg.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    color: $color-footer-benefits;
+
+    padding: 37px 0 40px;
+    margin-bottom: 120px;
+
+    h3 {
+      font-family: $font-footer-inter;
+      font-weight: 700;
+      font-size: 19px;
+
+      margin-bottom: 32px;
+      margin-left: 5px;
+    }
+  }
+
+  &__benefits-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 90px;
+
+    @include lg {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+  }
+
+  &__main {
+    font-family: $font-footer;
+    margin-bottom: 110px;
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+
+      @include md {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__content {
+    flex: 1;
+    max-width: 640px; // if display of main-container is flex
+
+    @include md {
+      max-width: none;
+    }
+  }
+
+  &__columns {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+  }
+
+  &__heading-link {
+    color: $color-title;
+  }
+
+  &__heading {
+    font-family: $font-footer;
+    font-weight: 700;
+    font-size: 15px;
+
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    margin-bottom: 50px;
+  }
+
+  &__item {
+    font-weight: 400;
+    font-size: 15px;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__link {
+    color: $color-text;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  &__contact {
+    flex: 1;
+    max-width: 373px; // if display of main-container is flex
+
+    @include md {
+      max-width: none;
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    font-family: $font-footer-inter;
+    font-weight: 400;
+    font-size: 14px;
+    color: $color-copyright;
+  }
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  &__text {
+    font-family: $font-footer;
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include md {
+    gap: 50px;
+  }
+}
+
+.contact-details {
+  display: grid;
+  grid-template-columns: minmax(160px, 195px) 1fr;
+  column-gap: 18px;
+  justify-content: space-between;
+  row-gap: 30px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+  }
+
+  @include lg {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  @include md {
+    gap: 20px;
+  }
+}

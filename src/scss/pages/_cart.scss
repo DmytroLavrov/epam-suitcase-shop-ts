@@ -1,0 +1,581 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+@use 'sass:color';
+@use 'sass:math';
+
+.cart {
+  &__header-image {
+    background-image: url(../../src/assets/images/hero/hero-cart.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: 1700 / 229;
+    background-position: center center;
+
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 70px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    @include md {
+      aspect-ratio: 0;
+      height: 140px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 50px;
+    color: $color-hero-header;
+    z-index: 2;
+  }
+
+  &__table-wrapper {
+    margin-bottom: 70px;
+
+    @include sm {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: $font-cart-table;
+
+    @include sm {
+      min-width: 0;
+      display: block;
+    }
+  }
+
+  &__table-header {
+    background-color: $bg-cart-table-header;
+
+    @include sm {
+      display: none;
+    }
+  }
+
+  &__table-cell {
+    padding: clamp(9px, -0.152rem + 1.49vw, 19px);
+    font-weight: 700;
+    font-size: clamp(14px, 0.589rem + 0.6vw, 18px);
+    color: $color-cart-table-header;
+    text-transform: uppercase;
+  }
+
+  &__table-body {
+    color: $color-cart-table-body;
+
+    @include sm {
+      display: block;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+
+    @include lg {
+      flex-direction: column;
+      row-gap: 40px;
+    }
+  }
+
+  &__actions {
+    flex: 2;
+
+    @include sm {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__btn {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    @include sm {
+      width: 100%;
+      padding: 14px;
+      text-align: center;
+
+      &:not(:last-child) {
+        margin-right: auto;
+      }
+    }
+  }
+
+  &__cart-summary {
+    flex: 1;
+    padding: 59px 42px 42px 42px;
+
+    @include xs {
+      padding: 39px 22px 22px 22px;
+    }
+  }
+}
+
+.cart-item {
+  border-bottom: 2px solid $color-accent;
+
+  td {
+    text-align: center;
+    padding: 5px;
+  }
+
+  // Mobile card layout
+  @include sm {
+    display: block;
+    padding: 20px 15px;
+    position: relative;
+
+    td {
+      display: block;
+      text-align: left;
+      padding: 0;
+    }
+  }
+
+  &__image {
+    @include sm {
+      float: left;
+      margin-right: 15px;
+    }
+  }
+
+  &__img {
+    width: clamp(80px, 2.143rem + 5.95vw, 120px);
+    height: clamp(80px, 2.143rem + 5.95vw, 120px);
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: clamp(14px, 0.589rem + 0.6vw, 18px);
+    max-width: clamp(100px, -0.893rem + 14.88vw, 200px);
+
+    @include sm {
+      max-width: none;
+      margin-bottom: 12px;
+      font-size: 16px;
+      display: block;
+      padding-top: 5px;
+      margin-right: calc(38px + 15px);
+      margin-left: calc(80px + 15px);
+    }
+  }
+
+  &__price,
+  &__total {
+    font-family: $font-main;
+    font-weight: 700;
+    font-size: clamp(14px, 0.661rem + 0.45vw, 17px);
+
+    &::before {
+      content: attr(data-value);
+
+      @include sm {
+        content: none;
+      }
+    }
+  }
+
+  &__price {
+    @include sm {
+      display: inline-block;
+
+      &::before {
+        content: 'Price: ';
+        color: $color-description;
+        font-weight: 400;
+      }
+
+      &::after {
+        content: attr(data-value);
+      }
+    }
+  }
+
+  &__quantity-controls {
+    @include sm {
+      margin-block: 20px;
+      clear: both;
+    }
+  }
+
+  &__quantity-wrapper {
+    display: inline-flex;
+    align-items: baseline;
+    gap: clamp(12px, 0.036rem + 1.49vw, 22px);
+    padding: 0.25rem;
+
+    @include sm {
+      gap: 15px;
+      padding: 8px 12px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+
+      &::before {
+        content: 'Quantity: ';
+        font-weight: 400;
+        font-size: 14px;
+        color: $color-description;
+      }
+    }
+  }
+
+  &__quantity-btn {
+    font-weight: 700;
+    font-size: clamp(24px, 0.786rem + 1.49vw, 34px);
+
+    @include sm {
+      font-size: 20px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-accent;
+      color: white;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__quantity-value {
+    font-weight: 700;
+    font-size: clamp(20px, 0.893rem + 0.74vw, 25px);
+
+    @include sm {
+      font-size: 18px;
+      min-width: 30px;
+      text-align: center;
+    }
+  }
+
+  &__total {
+    @include sm {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 700;
+
+      &::before {
+        content: 'Total: ' attr(data-value);
+      }
+    }
+  }
+
+  &__delete {
+    @include sm {
+      position: absolute;
+      top: 20px;
+      right: 15px;
+    }
+  }
+
+  &__delete-btn {
+    @include sm {
+      padding: 8px;
+      background-color: rgba($color-accent, 0.1);
+      border-radius: 4px;
+      transition: background-color 0.2s;
+
+      &:hover,
+      &:active {
+        background-color: rgba($color-accent, 0.2);
+      }
+    }
+  }
+
+  &__delete-icon {
+    max-width: clamp(18px, 0.982rem + 0.3vw, 20px);
+
+    @include sm {
+      max-width: 20px;
+    }
+  }
+}
+
+.cart-summary {
+  color: $color-cart-summary;
+  background-color: $bg-cart-summary;
+
+  width: 100%;
+  max-width: 571px;
+
+  @include lg {
+    max-width: none;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 15px;
+
+    font-weight: 700;
+    font-size: 17px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $color-accent;
+
+    @include xs {
+      font-size: 15px;
+    }
+  }
+
+  &__value {
+    &::before {
+      content: attr(data-value);
+    }
+  }
+
+  &__row--total {
+    margin-bottom: auto;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  &__checkout {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 40px;
+  }
+
+  &__btn-checkout {
+    @include xs {
+      width: 100%;
+    }
+  }
+}
+
+.thank-you-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+
+  &--visible {
+    display: flex;
+  }
+
+  &__content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    text-align: center;
+    max-width: 540px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: clamp(40px, 2rem + 2vw, 60px) clamp(30px, 1.5rem + 1.5vw, 50px);
+    position: relative;
+    animation: slideUp 0.4s ease;
+    overflow: hidden;
+
+    // Decorative element on top
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(
+        90deg,
+        $color-accent 0%,
+        color.adjust($color-accent, $lightness: 15%) 100%
+      );
+    }
+
+    // Decorative circles on the background
+    &::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba($color-accent, 0.08) 0%,
+        transparent 70%
+      );
+      top: -50px;
+      right: -50px;
+      pointer-events: none;
+    }
+  }
+
+  &__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    background: linear-gradient(
+      135deg,
+      $color-accent 0%,
+      color.adjust($color-accent, $lightness: 10%) 100%
+    );
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba($color-accent, 0.3);
+    animation: scaleIn 0.5s ease 0.2s both;
+
+    // Animated checkmark
+    &::before {
+      content: '✓';
+      font-size: 48px;
+      color: white;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    // Pulsating effect
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      border: 2px solid $color-accent;
+      opacity: 0;
+      animation: pulse 2s ease infinite;
+    }
+  }
+
+  &__header-block {
+    position: relative;
+    z-index: 1;
+
+    .header-block__title {
+      font-size: clamp(24px, 1.2rem + 1.2vw, 32px);
+      font-weight: 900;
+      color: $color-title;
+      margin-bottom: 16px;
+      line-height: 1.3;
+      animation: slideUp 0.5s ease 0.3s both;
+    }
+
+    .header-block__subtitle {
+      font-size: clamp(15px, 0.875rem + 0.3vw, 18px);
+      color: $color-description;
+      line-height: 1.6;
+      max-width: 400px;
+      margin: 0 auto;
+      animation: slideUp 0.5s ease 0.4s both;
+    }
+  }
+
+  &__decorative-text {
+    margin-top: 24px;
+    font-size: 14px;
+    color: color.adjust($color-description, $lightness: 10%);
+    font-style: italic;
+    animation: slideUp 0.5s ease 0.5s both;
+  }
+
+  // Confetti effect (optional)
+  &__confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: $color-accent;
+    opacity: 0;
+
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        left: math.random(100) * 1%;
+        top: -20px;
+        animation: confettiFall 3s ease-out #{$i * 0.1}s;
+        background-color: hsl(math.random(360), 70%, 60%);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(720deg);
+  }
+}

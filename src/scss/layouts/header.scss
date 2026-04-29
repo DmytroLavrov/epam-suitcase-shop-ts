@@ -1,0 +1,350 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+
+.header {
+  padding-top: clamp(28px, -2rem + 7.81vw, 48px); // 1024px to 768px
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $bg-header;
+  z-index: 5;
+  transition:
+    padding-top 0.3s ease,
+    box-shadow 0.3s ease;
+
+  @include xsm {
+    padding-top: 18px;
+  }
+
+  &--scrolled {
+    padding-top: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    .header__top {
+      padding-bottom: 12px;
+    }
+
+    .header__bottom {
+      padding: 12px 0 10px;
+    }
+
+    .logo__icon {
+      width: 24px;
+    }
+
+    .logo__text {
+      font-size: 20px;
+    }
+
+    .user-controls__icon--profile img {
+      width: 20px;
+    }
+
+    .user-controls__icon--cart img {
+      width: 24px;
+    }
+
+    .nav__item {
+      font-size: 14px;
+    }
+
+    .socials__link img {
+      width: 18px;
+    }
+
+    .socials__link--twitter img {
+      width: 18px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: clamp(20px, -2.5rem + 7.81vw, 40px); // 1024px to 768px
+    border-bottom: 1px solid $color-header-line;
+    transition: padding-bottom 0.3s ease;
+
+    @include xsm {
+      flex-direction: row;
+      padding-bottom: 15px;
+    }
+  }
+
+  &__bottom {
+    padding: clamp(20px, -0.438rem + 3.52vw, 29px) 0
+      clamp(16px, -0.5rem + 3.13vw, 24px); // 1024px to 768px
+    position: relative;
+    transition: padding 0.3s ease;
+  }
+}
+
+.socials {
+  &__link {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+
+      @include xsm {
+        margin-right: 10px;
+      }
+    }
+
+    img {
+      transition: width 0.3s ease;
+
+      @include xsm {
+        width: 18px;
+      }
+    }
+
+    &--twitter {
+      img {
+        width: 23px;
+        transition: width 0.3s ease;
+      }
+    }
+  }
+
+  @include xsm {
+    display: flex;
+    align-items: end;
+  }
+}
+
+.logo {
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-right: 12px;
+    width: clamp(30px, 0.938rem + 1.95vw, 35px); // 1024px to 768px
+    transition: width 0.3s ease;
+
+    @include xsm {
+      width: 20px;
+      margin-right: 6px;
+    }
+  }
+
+  &__text {
+    font-family: $font-main;
+    font-weight: 700;
+    font-size: clamp(24px, 0.375rem + 2.34vw, 30px); // 1024px to 768px
+    color: $color-accent;
+    transition: font-size 0.3s ease;
+
+    @include xsm {
+      font-size: 14px;
+    }
+  }
+}
+
+.user-controls {
+  &__icon {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &--profile {
+      img {
+        width: clamp(24px, 0.375rem + 2.34vw, 30px); // 1024px to 768px
+        transition: width 0.3s ease;
+      }
+    }
+
+    &--cart {
+      display: inline-block;
+      position: relative;
+
+      img {
+        width: clamp(24px, -0.375rem + 3.91vw, 34px); // 1024px to 768px
+        transition: width 0.3s ease;
+      }
+
+      @include xsm {
+        img {
+          height: 18px;
+        }
+      }
+    }
+
+    img {
+      @include xsm {
+        width: 18px;
+      }
+    }
+
+    @include xsm {
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__cart-counter {
+    position: absolute;
+    right: -14px;
+    top: -10px;
+    line-height: 1.367;
+    padding: 0 4.15px;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: clamp(10px, 0.25rem + 0.78vw, 12px); // 1024px to 768px
+    color: $color-accent;
+    border: 2px solid $color-accent;
+
+    @include xsm {
+      padding: 0 3px;
+      top: -9px;
+      right: -10px;
+      line-height: 1.2;
+    }
+  }
+
+  @include xsm {
+    display: flex;
+    align-items: end;
+  }
+}
+
+.nav {
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include xsm {
+      display: flex;
+    }
+  }
+
+  &__toggle-line {
+    width: 100%;
+    height: 2px;
+    background-color: $color-nav-item;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  &__toggle.active &__toggle-line {
+    background-color: $color-accent;
+  }
+
+  &__toggle.active &__toggle-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  &__toggle.active &__toggle-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  &__toggle.active &__toggle-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 29px;
+
+    @include xsm {
+      position: absolute;
+      top: calc(100% + 15px);
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: $bg-header;
+      padding: 0;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        max-height 0.4s ease,
+        opacity 0.4s ease,
+        visibility 0.4s ease,
+        padding 0.4s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    &.active {
+      @include xsm {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__item {
+    font-weight: 700;
+    font-size: clamp(16px, 0.625rem + 0.78vw, 18px); // 1024px to 768px
+
+    @include xsm {
+      width: 100%;
+      text-align: center;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba($color-header-line, 0.3);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &--dropdown {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 4px;
+    }
+  }
+
+  &__dropdown {
+    width: 12px;
+    height: 8px;
+  }
+
+  &__link {
+    color: $color-nav-item;
+    transition: color 0.3s ease;
+    display: block;
+
+    @include xsm {
+      padding: 8px 0;
+    }
+
+    &--active {
+      color: $color-accent;
+    }
+
+    &:hover {
+      color: $color-accent;
+    }
+
+    &--dropdown {
+      display: flex;
+      align-items: center;
+      column-gap: 4px;
+      justify-content: center;
+    }
+  }
+}

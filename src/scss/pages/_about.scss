@@ -1,0 +1,101 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+
+.new-arrivals {
+  padding-top: 130px;
+
+  &__container {
+    display: flex;
+    gap: 30px;
+
+    @include lg {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: start;
+
+    flex: 1 1 50%;
+
+    @include lg {
+      align-items: center;
+      row-gap: 20px;
+      text-align: center;
+      max-width: 615px;
+      order: 2;
+    }
+  }
+
+  &__image {
+    @include lg {
+      order: 1;
+    }
+  }
+}
+
+.team {
+  padding-top: 130px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+  }
+
+  &__title {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $color-accent;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+
+    @include md {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+.member-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 25px;
+  height: 100%;
+
+  &__image-wrapper {
+    @include lg {
+      max-width: 360px;
+    }
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+
+    @include lg {
+      font-size: 18px;
+    }
+  }
+
+  &__position {
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+
+    @include lg {
+      font-size: 16px;
+    }
+  }
+}

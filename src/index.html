@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEST SHOP | Home</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header"></header>
+      <main class="main">
+        <section class="hero-home">
+          <div class="hero-home__content">
+            <div class="hero-home__content-container container">
+              <div class="hero-home__info">
+                <h1 class="hero-home__title">
+                  Smart Styles for Every Destination
+                </h1>
+                <p
+                  class="hero-home__description description description--primary"
+                >
+                  Phasellus risus turpis, pretium sit amet magna non, molestie
+                  ultricies enim. Nullam pulvinar felis at metus.
+                </p>
+                <button class="hero-home__button btn btn--primary">
+                  View All Items
+                </button>
+              </div>
+
+              <div class="hero-home__image">
+                <img
+                  src="assets/images/hero/hero-suitcase.png"
+                  alt="Suitcase"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-home__cards">
+            <div class="hero-home__cards-container container">
+              <article class="hero-card hero-card--left">
+                <div class="hero-card__inner">
+                  <div class="hero-card__author">
+                    <img
+                      src="assets/images/hero/hero-person.jpg"
+                      alt="Lillian Bennett"
+                      class="hero-card__avatar"
+                    />
+                    <div>
+                      <h3 class="hero-card__name">Lillian Bennett</h3>
+                      <p class="hero-card__position">Chief Marketing Officer</p>
+                    </div>
+                  </div>
+                  <h2 class="hero-card__title title title--primary">
+                    Aliquam Faucibus Odionecom.
+                  </h2>
+                  <p class="hero-card__text description description--primary">
+                    Duis vestibulum elit vel neque pharetra vulputate. Quisque
+                    scelerisque nisi urna. Duis rutrum non risus in imperdiet.
+                    Proin molestie accumsan nulla sit.
+                  </p>
+                  <p class="hero-card__text description description--primary">
+                    Namaki duis vestibulum elit vel neque pharetra vulputate.
+                    Quisque scelerisque nisi urna.
+                  </p>
+                </div>
+              </article>
+
+              <article class="hero-card hero-card--right">
+                <div class="hero-card__content">
+                  <h2 class="hero-card__title title title--primary">
+                    25% Discount
+                  </h2>
+                  <p class="hero-card__text description description--primary">
+                    Curabitur vulputate arcu odio, ac facilisis diam accumsan
+                    ut. Ut imperdiet et leo in vulputate.
+                  </p>
+                  <a href="#" class="hero-card__button btn btn--primary">
+                    Get Discount
+                  </a>
+                </div>
+                <img
+                  src="assets/images/hero/hero-luggage.jpg"
+                  alt="Luggage"
+                  class="hero-card__bg"
+                />
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="travel-suitcases">
+          <div class="travel-suitcases__container container">
+            <div
+              class="travel-suitcases__header header-block header-block--margin"
+            >
+              <h2 class="header-block__title">Travel suitcases</h2>
+              <p class="header-block__subtitle">
+                Duis vestibulum elit vel neque pharetra
+              </p>
+            </div>
+
+            <div class="travel-suitcases__slider-wrapper slider">
+              <button id="left" class="slider__btn slider__btn--prev">
+                <span>&#10094;</span>
+              </button>
+
+              <div class="travel-suitcases__slides-track"></div>
+
+              <button id="right" class="slider__btn slider__btn--next">
+                <span>&#10095;</span>
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="products-list products-list--selected">
+          <div class="products-list__container container">
+            <div
+              class="products-list__header header-block header-block--margin"
+            >
+              <h2 class="header-block__title">Selected Products</h2>
+              <p class="header-block__subtitle">
+                Duis vestibulum elit vel neque pharetra
+              </p>
+            </div>
+
+            <ul class="products-list__list" id="productsListSelected"></ul>
+          </div>
+        </section>
+        <section class="offer-banner offer-banner--home">
+          <div class="offer-banner__container container">
+            <div class="offer-banner__background">
+              <div class="offer-banner__content">
+                <div class="offer-banner__value">
+                  <span class="offer-banner__discount-value">50%</span>
+                  <p class="offer-banner__caption-small">
+                    Curabitur vulputate arcu odio, ac facilisis diam.
+                  </p>
+                </div>
+
+                <div class="offer-banner__details">
+                  <h2 class="offer-banner__title title title--primary">
+                    Offer Of The Month
+                  </h2>
+                  <p class="offer-banner__description">
+                    Curabitur vulputate arcu odio, ac facilisis diam accumsan
+                    ut. Ut imperdiet et leo in vulputate.
+                  </p>
+                  <a href="#" class="offer-banner__button btn btn--primary"
+                    >Get Offer Today</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="products-list products-list--new">
+          <div class="products-list__container container">
+            <div
+              class="products-list__header header-block header-block--margin"
+            >
+              <h2 class="header-block__title">New Products Arrival</h2>
+              <p class="header-block__subtitle">
+                Duis vestibulum elit vel neque pharetra
+              </p>
+            </div>
+
+            <ul class="products-list__list" id="productsListNew"></ul>
+          </div>
+        </section>
+        <section class="testimonials">
+          <div class="testimonials__container container">
+            <div class="testimonials__header header-block header-block--margin">
+              <h2 class="header-block__title">Our Grateful Customers</h2>
+              <p class="header-block__subtitle">
+                Duis vestibulum elit vel neque pharetra
+              </p>
+            </div>
+            <div class="testimonials__cards">
+              <article class="testimonials__card">
+                <div class="testimonials__avatar-circle">
+                  <img
+                    src="assets/images/testimonials/placeholder-ethan.jpg"
+                    alt="Ethan Wade"
+                    class="testimonials__avatar"
+                  />
+                </div>
+                <p class="testimonials__quote description description--primary">
+                  Curabitur vulputate arcu odio, ac facilisis diam accumsan ut.
+                  Ut mperdiet et leo in vulputate.
+                </p>
+                <p class="testimonials__customer-info customer-info">
+                  <span class="customer-info__name">Ethan Wade</span>,
+                  <span class="customer-info__location">New York</span>
+                </p>
+              </article>
+
+              <article class="testimonials__card">
+                <div class="testimonials__avatar-circle">
+                  <img
+                    src="assets/images/testimonials/placeholder-jane.jpg"
+                    alt="Jane Reyes"
+                    class="testimonials__avatar"
+                  />
+                </div>
+                <p class="testimonials__quote description description--primary">
+                  Curabitur vulputate arcu odio, ac facilisis diam accumsan ut.
+                  Ut mperdiet et leo in vulputate.
+                </p>
+                <p class="testimonials__customer-info customer-info">
+                  <span class="customer-info__name">Jane Reyes</span>,
+                  <span class="customer-info__location">California</span>
+                </p>
+              </article>
+
+              <article class="testimonials__card">
+                <div class="testimonials__avatar-circle">
+                  <img
+                    src="assets/images/testimonials/placeholder-erica.jpg"
+                    alt="Erica Banks"
+                    class="testimonials__avatar"
+                  />
+                </div>
+                <p class="testimonials__quote description description--primary">
+                  Curabitur vulputate arcu odio, ac facilisis diam accumsan ut.
+                  Ut mperdiet et leo in vulputate.
+                </p>
+                <p class="testimonials__customer-info customer-info">
+                  <span class="customer-info__name">Erica Banks</span>,
+                  <span class="customer-info__location">Miami</span>
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+    <script src="../dist/js/main.js"></script>
+    <script src="../dist/js/home.js"></script>
+  </body>
+</html>

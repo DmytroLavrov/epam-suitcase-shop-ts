@@ -1,0 +1,72 @@
+@use '../abstracts/variables' as *;
+@use 'sass:color';
+
+.btn {
+  font-family: $font-main;
+  font-weight: 700;
+  font-size: clamp(14px, 0.589rem + 0.6vw, 18px); // 1440px to 768px
+  color: $color-btn-primary;
+  background-color: $color-accent;
+  cursor: pointer;
+  padding: clamp(14px, 0.589rem + 0.6vw, 18px)
+    clamp(16px, 0.714rem + 0.6vw, 20px) clamp(16px, 0.714rem + 0.6vw, 20px); // 1440px to 768px
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: color.adjust($color-accent, $lightness: -10%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    background-color: color.adjust($color-accent, $lightness: -15%);
+    transform: translateY(1px);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  &--primary {
+    padding: clamp(14px, 0.589rem + 0.6vw, 18px)
+      clamp(16px, 0.714rem + 0.6vw, 20px) clamp(16px, 0.714rem + 0.6vw, 20px); // 1440px to 768px
+  }
+
+  &--card {
+    font-family: $font-sf-pro;
+    padding: 10px 27px;
+    font-size: 17px;
+  }
+
+  &--filters,
+  &--cart-actions {
+    font-weight: 700;
+    font-size: 15px;
+    padding: 20px;
+    text-transform: uppercase;
+  }
+
+  &--filters {
+    padding-inline: 45px;
+  }
+
+  &--cart-summary {
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px 60px;
+    text-transform: uppercase;
+  }
+
+  &--action {
+    font-family: $font-btn-action;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 13px 20px 12px;
+    text-transform: uppercase;
+  }
+}
+
+a.btn {
+  display: inline-block;
+  text-decoration: none;
+}

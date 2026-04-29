@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "outDir": "./dist/js", // Compiled JS files go here
+    "rootDir": "./src/ts", // TS source files
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowJs": false
+  },
+  "include": ["src/ts/main.ts"],
+  "exclude": ["node_modules", "dist"]
+}

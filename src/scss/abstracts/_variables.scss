@@ -1,0 +1,65 @@
+$container-max-width: 1330px;
+$container-padding: 15px;
+
+$color-accent: #b92770;
+$color-text: #000000;
+$color-title: #000000;
+$color-description: #504e4a;
+$color-description-hero-header: #e9e9ed;
+$color-btn-primary: #ffffff;
+$color-header-line: #727174;
+$color-nav-item: #000000;
+$color-footer-benefits: #ffffff;
+$color-copyright: rgba(0, 0, 0, 0.35);
+$color-travel-suitcases-card: #ffffff;
+$color-product-card-badge: #ffffff;
+$color-product-card-price: #504e4a;
+$color-offer-banner-content: #ffffff;
+$color-catalog-toolbar: #504e4a;
+$color-border-dropdown: #e9e9ed;
+$color-pagination-active: #ffffff;
+$color-hero-header: #ffffff;
+$color-cart-table-header: #ffffff;
+$color-cart-table-body: #000000;
+$color-cart-summary: #ffffff;
+$color-label: #504e4a;
+$color-filter-select: #727174;
+$color-login-input: #727174;
+$color-border-form: $color-accent;
+$color-review-name: #504e4a;
+$color-review-date: #727174;
+$color-payment: #727174;
+$color-success: #28a745;
+$color-failed: #dc3545;
+
+$bg-header: #ffffff;
+$bg-hero-content: #e7e8e9;
+$bg-hero-card: #ffffff;
+$bg-testimonial-card: #ffffff;
+$bg-product-card-media: #ffffff;
+$bg-product-card-badge: $color-accent;
+$bg-cart-table-header: #504e4a;
+$bg-cart-summary: #504e4a;
+$bg-thank-you-modal: #ffffff;
+$bg-footer-benefits: #504e4a;
+$bg-company-feature-icon: $color-accent;
+
+$font-main: 'Montserrat', sans-serif;
+$font-footer: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-footer-inter: 'Inter', sans-serif;
+$font-sf-pro: 'SF Pro Display', sans-serif;
+$font-pagination: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-cart-table: 'SF Pro Display', sans-serif;
+$font-btn-action: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$box-shadow-card: 0 20px 80px 0 rgba(193, 199, 212, 0.7);
+
+$breakpoints: (
+  'xs': 480px,
+  'xsm': 560px,
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  'xxl': 1440px,
+);
