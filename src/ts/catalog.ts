@@ -136,12 +136,15 @@ function handleCatalogDropdownClick(
     handleSort(option.dataset.value || '');
   } else if (filterType) {
     // Dynamically update the filter state
-    (filters as any)[filterType] =
-      option.dataset.value === 'true'
-        ? true
-        : option.dataset.value === 'false'
-          ? false
-          : option.dataset.value || 'all';
+    let filterValue: string | boolean = option.dataset.value || 'all';
+
+    if (filterValue === 'true') {
+      filterValue = true;
+    } else if (filterValue === 'false') {
+      filterValue = false;
+    }
+
+    (filters as any)[filterType] = filterValue;
 
     applyFilters();
   }

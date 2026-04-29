@@ -1,12 +1,3 @@
-// import {
-//   Product,
-//   addProductToCart,
-//   createProductCard,
-//   getRandomItem,
-//   loadJSON,
-//   updateGlobalCartCounter,
-// } from './main.js';
-
 /// <reference path="./main.ts" />
 
 // ======================================================
