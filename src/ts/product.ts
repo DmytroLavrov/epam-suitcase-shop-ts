@@ -67,10 +67,10 @@ async function loadSingleProductDetails(): Promise<void> {
     return;
   }
 
-  products = Array.isArray(data) ? data : data.data || [];
+  products = Array.isArray(data) ? data : (data.data ?? []);
 
   const productId = getProductIdFromURL();
-  currentProduct = products.find((p) => p.id === productId) || null;
+  currentProduct = products.find((p) => p.id === productId) ?? null;
 
   if (!currentProduct) {
     renderNotFound();
@@ -679,7 +679,7 @@ function showAddToCartFeedback(): void {
   ) as HTMLButtonElement | null;
   if (!btn) return;
 
-  const originalText = btn.textContent || 'Add To Cart';
+  const originalText = btn.textContent ?? 'Add To Cart';
   btn.textContent = 'Added to Cart!';
   btn.disabled = true;
 
@@ -1001,12 +1001,10 @@ async function handleReviewSubmit(e: SubmitEvent): Promise<void> {
   });
 
   // Check if form is valid
-  const isValid = (Object.keys(errors) as Array<keyof typeof errors>).every(
-    (key) => {
-      const error = errors[key];
-      return error === '';
-    },
-  );
+  const isValid = Object.keys(errors).every((key) => {
+    const error = errors[key];
+    return error === '';
+  });
 
   if (!isValid) return;
 
@@ -1103,11 +1101,11 @@ function setupProductEventListeners(): void {
     document.querySelectorAll<HTMLButtonElement>('.review-form__star');
   ratingStars.forEach((star) => {
     star.addEventListener('click', () => {
-      const rating = parseInt(star.dataset.rating || '0');
+      const rating = parseInt(star.dataset.rating ?? '0');
       handleRatingClick(rating);
     });
     star.addEventListener('mouseenter', () => {
-      const rating = parseInt(star.dataset.rating || '0');
+      const rating = parseInt(star.dataset.rating ?? '0');
       handleRatingHover(rating);
     });
   });

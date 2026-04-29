@@ -59,7 +59,7 @@ function cacheFormElements(): void {
 // Validation Functions
 // ======================================================
 
-function validateField(fieldName: FieldName | string, value: string): string {
+function validateField(fieldName: string, value: string): string {
   switch (fieldName) {
     case 'name':
       return value.trim() === '' ? 'Name is required' : '';
@@ -82,7 +82,7 @@ function validateField(fieldName: FieldName | string, value: string): string {
 
 function showError(fieldName: FieldName, errorMessage: string): void {
   const input = formInputs[fieldName];
-  if (!input || !input.parentElement) return;
+  if (!input?.parentElement) return;
 
   // Remove any existing error message
   const existingError = input.parentElement.querySelector(
@@ -106,7 +106,7 @@ function showError(fieldName: FieldName, errorMessage: string): void {
 
 function clearError(fieldName: FieldName): void {
   const input = formInputs[fieldName];
-  if (!input || !input.parentElement) return;
+  if (!input?.parentElement) return;
 
   // Remove error styling
   input.classList.remove('contact-form__input--error');

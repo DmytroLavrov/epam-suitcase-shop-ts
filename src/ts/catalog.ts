@@ -133,10 +133,10 @@ function handleCatalogDropdownClick(
 
   // Handle sort or filter
   if (isSort) {
-    handleSort(option.dataset.value || '');
+    handleSort(option.dataset.value ?? '');
   } else if (filterType) {
     // Dynamically update the filter state
-    let filterValue: string | boolean = option.dataset.value || 'all';
+    let filterValue: string | boolean = option.dataset.value ?? 'all';
 
     if (filterValue === 'true') {
       filterValue = true;
