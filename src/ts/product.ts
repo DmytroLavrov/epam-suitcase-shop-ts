@@ -1011,7 +1011,7 @@ async function handleReviewSubmit(e: SubmitEvent): Promise<void> {
   // Simulate form submission
   const submitBtn = form.querySelector(
     'button[type="submit"]',
-  ) as HTMLButtonElement | null;
+  ) as HTMLButtonElement;
   if (submitBtn) {
     submitBtn.disabled = true;
     submitBtn.innerHTML = `
