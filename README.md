@@ -3,7 +3,7 @@
 ## 📊 Evaluation & Deployment
 
 * **Implementation Score:** **64 / 64**
-* **Live Demo:** [View Demo](epam-suitcase-shop-ts.vercel.app)
+* **Live Demo:** [View Demo](https://epam-suitcase-shop-ts.vercel.app/)
 
 ---
 
