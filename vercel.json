@@ -1,0 +1,10 @@
+{
+  "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/src/index.html",
+      "permanent": false
+    }
+  ]
+}
