@@ -1,30 +1,134 @@
-# BEST SHOP - E-Commerce Project
+# 🛒 BEST SHOP – E-Commerce Project
 
 ## 📊 Evaluation & Deployment
-* **Implementation Score:** 64 out of 64 (See the included `Final_Project_Implementation_Checklist_template.docx` for details).
-* **Live Deployment:** [View Demo](epam-suitcase-shop-ts.vercel.app)
+
+* **Implementation Score:** **64 / 64**
+* **Live Demo:** [View Demo](epam-suitcase-shop-ts.vercel.app)
 
 ---
 
-This is a responsive e-commerce front-end application built as part of the fundamentals project template. It features a fully functional catalog, product details, shopping cart, and contact pages, all powered by TypeScript and styled with SCSS using the BEM methodology.
+## 📖 About the Project
+
+This is a responsive e-commerce front-end application built as part of a fundamentals project template. It includes a fully functional catalog, product details, shopping cart, and contact pages.
+
+The project is developed using **TypeScript** and styled with **SCSS** following the **BEM methodology**.
+
+---
 
 ## 🚀 Features
 
-* **TypeScript Integration:** Strongly typed JavaScript for better code quality and maintainability.
-* **SCSS & BEM:** Modular and scalable styling architecture.
-* **Responsive Design:** Optimized for mobile, tablet, and desktop viewing.
-* **Dynamic Content:** Products and details are loaded dynamically from local JSON data.
-* **Key Functionality:** Home page slider, product filtering and sorting, cart management, and form validation.
+* ✅ **TypeScript Integration** – Strong typing for better reliability and maintainability
+* 🎨 **SCSS & BEM** – Scalable and modular styling architecture
+* 📱 **Responsive Design** – Works on mobile, tablet, and desktop
+* 🔄 **Dynamic Content** – Data loaded from local JSON
+* 🛍️ **Core Functionality:**
+
+  * Home page slider
+  * Product filtering & sorting
+  * Shopping cart management
+  * Form validation
+
+---
 
 ## 📋 Prerequisites
 
-Before you begin, ensure you have met the following requirements:
-* **Node.js** (v14.0.0 or higher recommended)
-* **npm** (Node Package Manager, comes with Node.js)
+Make sure you have installed:
+
+* **Node.js** (v14 or higher)
+* **npm** (comes with Node.js)
+
+---
 
 ## 🛠️ Installation & Setup
 
-1. **Clone the repository** (if you haven't already):
-   ```bash
-   git clone <your-repository-url>
-   cd fundamentals-project-ts-template
+### 1. Clone the repository
+
+```bash
+git clone <your-repository-url>
+cd fundamentals-project-ts-template
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 💻 Running the Project (Development)
+
+Start the development server with live reload:
+
+```bash
+npm run dev
+```
+
+This will:
+
+* Compile TypeScript and SCSS
+* Start a local server
+* Open the app in your browser automatically
+
+---
+
+## 🏗️ Building for Production
+
+Create a production-ready build:
+
+```bash
+npm run build
+```
+
+Output files will be generated in the `dist/` folder.
+
+---
+
+## 🌐 Deployment
+
+This project can be easily deployed using:
+
+* Vercel
+* GitHub Pages
+
+---
+
+## 📂 Project Structure
+
+```plaintext
+fundamentals-project-ts-template/
+├── src/
+│   ├── assets/           # Images, icons, data.json
+│   ├── html/             # Pages (catalog, cart, contact, etc.)
+│   ├── scss/             # SCSS (7-1 architecture)
+│   ├── ts/               # TypeScript logic
+│   └── index.html        # Main entry point
+├── dist/                 # Production build
+├── .eslintrc.json        # ESLint config
+├── .stylelintrc.json     # Stylelint config
+├── tsconfig.json         # TypeScript config
+├── vercel.json           # Deployment config
+└── package.json          # Dependencies & scripts
+```
+
+---
+
+## 🧹 Linting & Code Formatting
+
+### Check TypeScript
+
+```bash
+npm run lint:ts
+```
+
+### Check SCSS
+
+```bash
+npm run lint:scss
+```
+
+### Fix all lint issues
+
+```bash
+npm run lint:fix
+```
