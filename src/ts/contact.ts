@@ -38,7 +38,7 @@ let isSubmitting: boolean = false;
 function cacheFormElements(): void {
   contactForm = document.querySelector(
     '.contact-form__fields',
-  ) as HTMLFormElement | null;
+  ) as HTMLFormElement;
 
   formInputs = {
     name: document.getElementById('name') as HTMLInputElement | null,

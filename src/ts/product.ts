@@ -1039,9 +1039,11 @@ async function handleReviewSubmit(e: SubmitEvent): Promise<void> {
         star.classList.remove('review-form__star--active');
       });
 
-    (
-      Object.keys(reviewForm.touched) as Array<keyof ReviewFormState['touched']>
-    ).forEach((key) => {
+    // Reset touched state
+    const touchedKeys = Object.keys(reviewForm.touched) as Array<
+      keyof ReviewFormState['touched']
+    >;
+    touchedKeys.forEach((key) => {
       reviewForm.touched[key] = false;
     });
 
